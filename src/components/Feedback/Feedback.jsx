@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-// import css from './FeedBack.module.css'
-import css from './Feedback.module.css'
+import css from './Feedback.module.css';
 
 export default function FeedBack({ options, onLeaveFeedback }) {
   return (
@@ -20,7 +19,6 @@ export default function FeedBack({ options, onLeaveFeedback }) {
     </div>
   );
 }
-
 
 FeedBack.propTypes = {
   options: PropTypes.array,
