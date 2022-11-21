@@ -1,28 +1,8 @@
 import { SecondTitle } from '../SecondTitle/SecondTitle';
 import { StatisticsList } from './StatisticsList';
-import FeedBack from 'components/Feedback/Feedback';
-import { useState } from 'react';
 
-export default function Statistics() {
-  const [good, setGood] = useState(0);
-  const [neutral, setNeutral] = useState(0);
-  const [bad, setBad] = useState(0);
-
-  const options = { good, neutral, bad };
-
-  const handlerBtn = options => {
-    if (options === 'good') {
-      setGood(good + 1);
-    }
-
-    if (options === 'neutral') {
-      setNeutral(neutral + 1);
-    }
-
-    if (options === 'bad') {
-      setBad(bad + 1);
-    }
-  };
+export default function Statistics({ options }) {
+  const { good, neutral, bad } = options;
 
   const countTotalFeedback = () => {
     let total = good + neutral + bad;
@@ -37,7 +17,6 @@ export default function Statistics() {
 
   return (
     <div>
-      <FeedBack options={Object.keys(options)} onLeaveFeedback={handlerBtn} />
       <SecondTitle text={'Statistics'} />
       {countTotalFeedback() ? (
         <StatisticsList
